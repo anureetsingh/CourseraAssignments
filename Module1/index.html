@@ -20,6 +20,7 @@
              class="form-control"
              ng-model="items"
              style="border-color:{{bodrColor}}">
+             <span>we do not count empty items ie <b>, ,</b> is not considered as valid item towards count</span>
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="checkLunch()">Check If Too Much</button>
