@@ -1,0 +1,12 @@
+<table width="90%" class="table table-bordered" ng-hide="foundI.checkIfEmpty()">
+  <tr>
+    <th>Name</th><th>Short Name</th><th colspan="2">Description</th>
+  </tr>
+  <tr ng-repeat="item in foundI.foundItems">
+   <td>{{item.name}}</td>
+   <td>{{item.short_name}}</td>
+   <td>{{item.description}}</td>
+   <td><button class="btn btn-info" ng-click="foundI.onRemove({index: $index});">Don't want this one!</button></td>
+ </tr>
+</table>
+<div style="color:red" ng-if="foundI.checkIfEmpty()">Nothing to display</div>
