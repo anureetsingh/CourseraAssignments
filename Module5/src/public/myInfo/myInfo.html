@@ -1,0 +1,68 @@
+<div class="row" align ="center">
+  <div class="col-md-16">
+    <h1>
+    <span ng-if="!info.validate()">Not Signed Up Yet. Sign up Now :( </span>
+    <span ng-if="info.validate()">Your Details are :) </span>
+  </h1>
+  </div>
+</div>
+
+<div ng-if="info.validate()" class="container-fluid">
+
+      <div class="row" >
+            <div class="col-md-3">
+                <b>First Name:</b>
+            </div>
+            <div class="col-md-4">
+              {{info.userinfo.firstname}}
+            </div>
+      </div>
+      <div class="row" >
+            <div class="col-md-3">
+                <b>Last Name:</b>
+            </div>
+            <div class="col-md-2">
+              {{info.userinfo.lastname}}
+            </div>
+      </div>
+      <div class="row" >
+            <div class="col-md-3">
+                <b>Email:</b>
+            </div>
+            <div class="col-md-4">
+              {{info.userinfo.email}}
+            </div>
+      </div>
+      <div class="row" >
+            <div class="col-md-3">
+                <b>Phone Number:</b>
+            </div>
+            <div class="col-md-4">
+              {{info.userinfo.phone}}
+            </div>
+      </div>
+      <div class="row" >
+            <div class="col-md-3">
+                <b>Favourite Dish Name:</b>
+            </div>
+            <div class="col-md-4">
+              {{info.userinfo.itemName}}
+            </div>
+      </div>
+      <div class="row" >
+            <div class="col-md-3">
+                <b>Favourite Dish Description:</b>
+            </div>
+            <div class="col-md-4">
+              {{info.userinfo.itemDescription}}
+            </div>
+      </div>
+      <div class="row">
+         <div class="col-md-3">
+              <b>Dish Image</b>
+         </div>
+          <div class="col-md-4">
+            <img src="{{info.basePath}}/images/{{info.userinfo.favItem|uppercase}}.jpg" alt="Photo Unavalible">
+          </div>
+      </div>
+</div>

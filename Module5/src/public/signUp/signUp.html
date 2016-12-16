@@ -1,0 +1,95 @@
+
+<fieldset>
+      <legend style="color:yellow">Sign Up With Us</legend>
+      <form name='signUpForm' novalidate  autocomplete="off">
+        <table style="color:black" align="center">
+             <tr>
+               <td>
+                  <input type="text" name="firstname" placeholder="your first name" size="35"
+                    ng-model="sign.user.firstname"
+                    required
+                    minlength="4"
+                    ng-maxlength="10">
+               </td>
+               <td>
+                    <span style="color:yellow"
+                     ng-if="(signUpForm.firstname.$error.minlength || signUpForm.firstname.$error.required) && signUpForm.firstname.$touched">
+                     first name must be at least 4 characters long
+                    </span>
+                    <span style="color:yellow" ng-if="signUpForm.firstname.$error.maxlength && signUpForm.firstname.$touched">
+                     first name must not be longer than 10 characters
+                    </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <input type="text" name="lastname" placeholder="your last name" size="35"
+                      ng-model="sign.user.lastname"
+                      required
+                      minlength="4"
+                      ng-maxlength="10">
+                </td>
+                <td>
+                  <span style="color:yellow"
+                    ng-if="(signUpForm.lastname.$error.minlength || signUpForm.lastname.$error.required) && signUpForm.lastname.$touched">
+                    last name must be at least 4 characters long
+                  </span>
+                  <span  style="color:yellow" ng-if="signUpForm.lastname.$error.maxlength && signUpForm.lastname.$touched">
+                    last name must not be longer than 10 characters
+                  </span>
+                <td>
+              </tr>
+
+              <tr>
+                <td>
+                    <input type="email" name="email" placeholder="Email :  abcd@domain.com" size="35"
+                    ng-model="sign.user.email"
+                    required>
+                </td>
+                <td>
+                  <span style="color:yellow" ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+                    Must be a valid email address
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" name="phone" placeholder="Phone ###-###-####"
+                    ng-model="sign.user.phone"
+                    pattern="(\d{3})-(\d{3})-(\d{4})" size="35">
+                </td>
+                <td>
+                  <span  style="color:yellow" ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+                  Phone must be in the format ###-###-####.
+                </span>
+               <td>
+             </tr>
+             <tr>
+               <td>
+                <input type="text" name="favitem" placeholder="Enter your favourite Menu Number eg. FR"
+                  ng-model="sign.user.favItem" minlength="2" ng-maxlength="2"  size="35" ng-keyup="sign.checkFavMenuItem(sign.user.favItem)">
+               </td>
+               <td>
+                  <span  style="color:yellow" ng-if="sign.flag">
+                  No such menu number exists.
+                  </span>
+              </td>
+             </tr>
+             <tr colspan="2">
+              <td>
+                <button
+                ng-disabled="signUpForm.$invalid ||sign.btn_flag" ng-click="sign.saveInfo(sign.user)">Submit</button>
+              </td>
+              </tr>
+
+              <tr colspan="2">
+               <td>
+                 <span  style="color:yellow" ng-if="sign.saveStatus">
+                 Your details have been saved.
+                 </span>
+
+                 </td>
+               </tr>
+        </table>
+      </form>
+    </fieldset>
